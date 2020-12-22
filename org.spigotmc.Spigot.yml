@@ -1,0 +1,38 @@
+app-id: org.spigotmc.Spigot
+runtime: org.freedesktop.Platform
+runtime-version: '20.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk11
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+sdk: org.gnome.Sdk
+
+command: spigot.sh
+finish-args:
+  - --env=PATH=/usr/bin:/app/bin:/app/jre/bin
+  - --env=JAVA_HOME=/app/jre
+  - --share=network
+  - --persist=.
+
+build-options:
+    env:
+        JAVA_HOME: /usr/lib/sdk/openjdk11/
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk11/install.sh
+
+  - name: spigot
+    buildsystem: simple
+    build-commands:
+      - install -D spigot.jar /app/bin/spigot.jar
+      - install -D spigot.sh /app/bin/spigot.sh
+    sources:
+      - type: file
+        url: https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar
+        sha256: d333662aa36a1f66c1ef42ac9f27966fb088ac364dafa6fdb70c6a20955792ed
+        dest-filename: spigot.jar
+      - type: file
+        path: spigot.sh
