@@ -29,6 +29,7 @@ modules:
     build-commands:
       - install -D spigot.jar /app/bin/spigot.jar
       - install -D spigot.sh /app/bin/spigot.sh
+      - install -D org.spigotmc.Spigot.desktop /app/share/applications/org.spigotmc.Spigot.desktop
     sources:
       - type: file
         url: https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar
@@ -36,3 +37,5 @@ modules:
         dest-filename: spigot.jar
       - type: file
         path: spigot.sh
+      - type: file
+        path: org.spigotmc.Spigot.desktop

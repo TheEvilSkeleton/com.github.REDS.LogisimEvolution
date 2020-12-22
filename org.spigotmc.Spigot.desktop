@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Terminal=true
+StartupNotify=true
+Name=Spigot
+Comment=Minecraft server
+Icon=org.spigotmc.Spigot
+Exec=spigot.sh
+Categories=Utility;Development;System;Education;Network
+Keywords=Minecraft;MC;Spigot;Server
+X-Flatpak=org.spigotmc.Spigot
