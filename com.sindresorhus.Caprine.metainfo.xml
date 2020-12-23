@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.sindresorhus.Caprine</id>
+  <launchable type="desktop-id">com.sindresorhus.Caprine.desktop</launchable>
+  <name>Caprine</name>
+  <developer_name>Sindre Sorhus</developer_name>
+  <summary>Elegant Facebook Messenger desktop app</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <url type="homepage">https://sindresorhus.com/caprine</url>
+  <icon type="remote" height="256" width="256">https://raw.githubusercontent.com/sindresorhus/caprine/master/media/AppIcon-readme.png</icon>
+  <description>
+    <p>Caprine is an unofficial and privacy-focused Facebook Messenger app with many useful features.</p>
+  </description>
+  <releases>
+    <release version="2.51.1" date="2020-11-16"/>
+  </releases>
+</component>

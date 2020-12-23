@@ -1,0 +1,50 @@
+app-id: com.sindresorhus.Caprine
+base: org.electronjs.Electron2.BaseApp
+base-version: "20.08"
+command: caprine
+rename-desktop-file: caprine.desktop
+rename-icon: caprine
+runtime: org.freedesktop.Platform
+runtime-version: "20.08"
+sdk: org.freedesktop.Sdk
+separate-locales: false
+finish-args:
+  - --device=all
+  - --device=dri
+  - --filesystem=xdg-download
+  - --filesystem=xdg-videos:ro
+  - --filesystem=xdg-pictures:ro
+  - --share=ipc
+  - --share=network
+  - --socket=pulseaudio
+  - --socket=x11
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.portal.Fcitx
+  - --talk-name=org.freedesktop.secrets
+modules:
+  - shared-modules/libsecret/libsecret.json
+
+  - name: caprine
+    buildsystem: simple
+    build-commands:
+      - ar -o -x caprine.deb
+      - tar --extract --file=data.tar.xz
+      - cp --preserve --recursive opt/* usr/* /app
+      - desktop-file-edit --set-key=Exec --set-value="/app/bin/caprine %U" /app/share/applications/caprine.desktop
+      - install -D --mode=0755 caprine.sh /app/bin/caprine
+      - install -D --mode=0644 --target-directory=/app/share/metainfo/ com.sindresorhus.Caprine.metainfo.xml
+    sources:
+      - type: file
+        dest-filename: caprine.deb
+        only-arches:
+          - x86_64
+        sha256: cc0b61c455382f8f121c60910e86a9e2bbc8676e2230165da29256165ce196c1
+        url: https://github.com/sindresorhus/caprine/releases/download/v2.51.1/caprine_2.51.1_amd64.deb
+      - type: file
+        sha256: 7c78ec1058670683aea6cc44eef46e6e9b511261295417676480acbb729458db
+        url: https://github.com/sindresorhus/caprine/archive/v2.51.1.tar.gz
+      - type: file
+        path: com.sindresorhus.Caprine.metainfo.xml
+      - type: file
+        path: caprine.sh
