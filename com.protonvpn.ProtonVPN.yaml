@@ -1,0 +1,126 @@
+app-id: com.protonvpn.ProtonVPN
+runtime: org.gnome.Platform
+runtime-version: '3.38'
+sdk: org.gnome.Sdk
+command: protonvpn-gui
+finish-args:
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+  - '--share=network'
+
+cleanup:
+  - '/include'
+  - '/lib/peas-demo'
+  - '/lib/pkgconfig'
+  - '/man'
+  - '/share/aclocal'
+  - '/share/gtk-doc'
+  - '/share/man'
+  - '/share/metainfo'
+  - '/share/pkgconfig'
+  - '/share/vala'
+  - '*.a'
+  - '*.la'
+  - '*.pyc'
+  - '__pycache__'
+
+modules:
+
+  - name: chardet
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "chardet"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl
+        sha256: f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5
+
+  - name: idna
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "idna"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/a2/38/928ddce2273eaa564f6f50de919327bf3a00f091b5baba8dfa9460f3a8a8/idna-2.10-py2.py3-none-any.whl
+        sha256: b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0
+
+  - name: certifi
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "certifi"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/5e/a0/5f06e1e1d463903cf0c0eebeb751791119ed7a4b3737fdc9a77f1cdfb51f/certifi-2020.12.5-py2.py3-none-any.whl
+        sha256: 719a74fb9e33b9bd44cc7f3a8d94bc35e4049deebe19ba7d8e108280cfd59830
+
+  - name: urllib3
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "urllib3"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/f5/71/45d36a8df68f3ebb098d6861b2c017f3d094538c0fb98fa61d4dc43e69b9/urllib3-1.26.2-py2.py3-none-any.whl
+        sha256: d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473
+
+  - name: MarkupSafe
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "MarkupSafe"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/4b/20/f6d7648c81cb84815d0be935d5c74cd1cc0239e43eadb1a61062d34b6543/MarkupSafe-1.1.1-cp38-cp38-manylinux1_x86_64.whl
+        sha256: 13d3144e1e340870b25e7b10b98d779608c02016d5184cfb9927a9f10c689f42
+
+  - name: requests
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "requests"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl
+        sha256: c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e
+
+  - name: pythondialog
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "pythondialog"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/34/25/385b0110d11d84a80969c7c3f56699f6c74ce8ceb3c0a05fa5f64d0f9de8/pythondialog-3.5.1-py3-none-any.whl
+        sha256: b50494be494069aa5aa1b975072ab8de282850cc6c75a002d1a180ad1a27f45f
+
+  - name: jinja2
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "jinja2"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/30/9e/f663a2aa66a09d838042ae1a2c5659828bb9b41ea3a6efa20a20fd92b121/Jinja2-2.11.2-py2.py3-none-any.whl
+        sha256: f0a4641d3cf955324a89c04f3d94663aa4d638abe8f733ecd3582848e1c37035
+
+  - name: docopt
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "docopt"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz
+        sha256: 49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491
+
+  - name: protonvpn-cli
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "protonvpn-cli"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/e2/9e/db8ce7e6b9067f70b71bd9b1244a85ed392a4d4746648a742cbe9e6b0602/protonvpn_cli-2.2.6-py3-none-any.whl
+        sha256: e9a9c77847eaeba97aab5e05af1f5dea5d51eee3bcce603bf880767b1490d64c
+
+  - name: protonvpn-gui
+    buildsystem: simple
+    build-commands:
+      - 'pip3 install --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} "protonvpn-gui"'
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/4b/9a/2346fadb12e59cc8a3d6ef9a214bb2d1c76e9581badd54efd20baee6b56b/protonvpn_gui-2.1.1-py3-none-any.whl
+        sha256: 0f05d16234490ffecb8e409764aa8077c1804566a6bec4b615c9e667a89befc9
