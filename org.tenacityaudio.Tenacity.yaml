@@ -200,6 +200,7 @@ modules:
       - install -d /app/extensions/Plugins
     cleanup:
       - /share/tenacity/include
+      - /share/audacity/include
       - /share/pixmaps
     sources:
       - type: git
