@@ -56,7 +56,6 @@ modules:
       - --with-zlib
       - --with-cxx=14
       - --disable-sdltest
-      - --disable-webkit
       - --disable-webview
       - --disable-webviewwebkit
       - --disable-ribbon
