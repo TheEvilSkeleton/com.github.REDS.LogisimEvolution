@@ -72,7 +72,7 @@ modules:
       - type: git
         url: https://github.com/wxWidgets/wxWidgets
         tag: v3.1.5
-        commit: e42d7f73652cf7e40058a48177a86e0f864ec464
+        commit: 9c0a8be1dc32063d91ed1901fd5fcd54f4f955a1
 
   - deps/lame-3.100.json
   - deps/libid3tag/libid3tag.json
