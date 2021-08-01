@@ -8,7 +8,7 @@ sdk: org.gnome.Sdk
 command: tenacity
 rename-desktop-file: tenacity.desktop
 rename-icon: tenacity
-#rename-appdata-file: tenacity.appdata.xml
+rename-appdata-file: tenacity.appdata.xml
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -197,7 +197,7 @@ modules:
       - -Dhas_networking=no
     post-install:
       - chrpath -d /app/bin/tenacity
-#      - install -Dm644 ../help/tenacity.appdata.xml -t /app/share/metainfo
+      - install -Dm644 ../help/tenacity.appdata.xml -t /app/share/metainfo
       - install -d /app/extensions/Plugins
     cleanup:
       - /share/tenacity/include
@@ -207,3 +207,6 @@ modules:
         url: https://github.com/tenacityteam/tenacity.git
       - type: patch
         path: patches/audacity-suil-fix.patch
+      - type: shell
+        commands:
+          - sed -e '41i <release version="commit-657a83b9efa53e66d0273de992ad2944fa585dab" date="2021-08-01"/>' -i help/tenacity.appdata.xml
