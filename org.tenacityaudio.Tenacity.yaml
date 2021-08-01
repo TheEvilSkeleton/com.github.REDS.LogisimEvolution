@@ -181,20 +181,20 @@ modules:
       - -DwxWidgets_CXX_FLAGS=-pthread
       - -DwxWidgets_DEFINITIONS_GENERAL=WXUSINGDLL;__WXGTK__;_FILE_OFFSET_BITS=64
       - -DwxWidgets_LIBRARIES=-lwx_gtk3u_xrc-3.1;-lwx_gtk3u_html-3.1;-lwx_gtk3u_qa-3.1;-lwx_gtk3u_core-3.1;-lwx_baseu_xml-3.1;-lwx_baseu_net-3.1;-lwx_baseu-3.1
-      - -Daudacity_lib_preference=system
-      - -Daudacity_obey_system_dependencies=On
+      - -Dlib_preference=system
+      - -Dobey_system_dependencies=On
       - -Duse_wxwidgets=system
-      - -Daudacity_use_soxr=local
+      - -Duse_soxr=local
       - -Duse_portaudio=system
       - -Duse_portmixer=off
-      - -Daudacity_use_vamp=local
-      - -Dauadcity_use_pa_jack=linked
-      - -Daudacity_use_midi=local
-      - -Daudacity_use_portsmf=local
-      - -Daudacity_use_sbsms=local
-      - -Daudacity_use_soundtouch=local
-      - -Daudacity_use_twolame=local
-      - -Daudacity_has_networking=no
+      - -Duse_vamp=local
+      - -Duse_pa_jack=linked
+      - -Duse_midi=local
+      - -Duse_portsmf=local
+      - -Duse_sbsms=local
+      - -Duse_soundtouch=local
+      - -Duse_twolame=local
+      - -Dhas_networking=no
     post-install:
       - chrpath -d /app/bin/tenacity
 #      - install -Dm644 ../help/tenacity.appdata.xml -t /app/share/metainfo
