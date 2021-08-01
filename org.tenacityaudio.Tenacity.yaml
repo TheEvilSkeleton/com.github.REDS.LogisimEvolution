@@ -184,7 +184,7 @@ modules:
       - -DwxWidgets_LIBRARIES=-lwx_gtk3u_xrc-3.1;-lwx_gtk3u_html-3.1;-lwx_gtk3u_qa-3.1;-lwx_gtk3u_core-3.1;-lwx_baseu_xml-3.1;-lwx_baseu_net-3.1;-lwx_baseu-3.1
       - -Daudacity_lib_preference=system
       - -Daudacity_obey_system_dependencies=On
-      - -Daudacity_use_wxwidgets=system
+      - -Duse_wxwidgets=system
       - -Daudacity_use_soxr=local
       - -Daudacity_use_portaudio=local
       - -Daudacity_use_vamp=local
