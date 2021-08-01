@@ -186,7 +186,8 @@ modules:
       - -Daudacity_obey_system_dependencies=On
       - -Duse_wxwidgets=system
       - -Daudacity_use_soxr=local
-      - -Daudacity_use_portaudio=local
+      - -Duse_portaudio=system
+      - -Duse_portmixer=off
       - -Daudacity_use_vamp=local
       - -Dauadcity_use_pa_jack=linked
       - -Daudacity_use_midi=local
