@@ -70,9 +70,9 @@ modules:
       - /share/bakefile
     sources:
       - type: git # they want their fork
-        url: https://github.com/audacity/wxWidgets
+        url: https://github.com/wxWidgets/wxWidgets
         # branch: audacity-fixes-3.1.3
-        tag: v3.1.3.1-audacity
+        tag: v3.1.5
         commit: e42d7f73652cf7e40058a48177a86e0f864ec464
 
   - deps/lame-3.100.json
