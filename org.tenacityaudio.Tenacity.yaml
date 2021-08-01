@@ -12,7 +12,7 @@ rename-appdata-file: tenacity.appdata.xml
 finish-args:
   - --share=ipc
   - --socket=x11
-  - --share=network # Audacity uses network sockets for IPC
+  - --share=network # Tenacity uses network sockets for IPC
   - --socket=pulseaudio
   - --device=all # ALSA
   - --filesystem=host
@@ -69,7 +69,7 @@ modules:
       - /lib/wx
       - /share/bakefile
     sources:
-      - type: git # they want their fork
+      - type: git
         url: https://github.com/wxWidgets/wxWidgets
         tag: v3.1.5
         commit: e42d7f73652cf7e40058a48177a86e0f864ec464
