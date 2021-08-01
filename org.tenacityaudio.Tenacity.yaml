@@ -214,6 +214,8 @@ modules:
         url: https://github.com/tenacityteam/tenacity.git
       - type: patch
         path: patches/audacity-suil-fix.patch
+      - type: patch
+        path: patches/about-dialog-build-fix.patch
       - type: shell
         commands:
           - sed -e '41i <release version="commit-657a83b9efa53e66d0273de992ad2944fa585dab" date="2021-08-01"/>' -i help/tenacity.appdata.xml

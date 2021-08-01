@@ -1,0 +1,26 @@
+From 0f00ce1f84664c1898670168ab97e4e3c10a9ec5 Mon Sep 17 00:00:00 2001
+From: Vincent Chernin <38842733+vchernin@users.noreply.github.com>
+Date: Sun, 1 Aug 2021 16:38:38 -0700
+Subject: [PATCH] Workaround about dialog related build failure See
+ https://github.com/tenacityteam/tenacity/issues/424
+
+---
+ src/AboutDialog.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/AboutDialog.cpp b/src/AboutDialog.cpp
+index f92361012..d68647846 100644
+--- a/src/AboutDialog.cpp
++++ b/src/AboutDialog.cpp
+@@ -238,7 +238,7 @@ void AboutDialog::CreateInformationTab(ShuttleGui& AboutDialogGUI) {
+     AddBuildInfoRow(&informationStr, wxT("VST"), XO("Plug-in support"), USE_VST ? enabled : disabled);
+     AddBuildInfoRow(&informationStr, wxT("LV2"), XO("Plug-in support"), USE_LV2 ? enabled : disabled);
+ 
+-    AddBuildInfoRow(&informationStr, wxT("PortMixer"), XO("Sound card mixer support"), USE_PORTMIXER ? enabled : disabled);
++    // AddBuildInfoRow(&informationStr, wxT("PortMixer"), XO("Sound card mixer support"), USE_PORTMIXER ? enabled : disabled);
+     AddBuildInfoRow(&informationStr, wxT("SoundTouch"), XO("Pitch and Tempo Change support"), USE_SOUNDTOUCH ? enabled : disabled);
+     AddBuildInfoRow(&informationStr, wxT("SBSMS"), XO("Extreme Pitch and Tempo Change support"), USE_SBSMS ? enabled : disabled);
+ 
+-- 
+2.31.1
+
