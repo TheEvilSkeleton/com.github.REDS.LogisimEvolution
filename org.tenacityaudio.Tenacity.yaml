@@ -239,6 +239,7 @@ modules:
       - -DwxWidgets_CXX_FLAGS=-pthread
       - -DwxWidgets_DEFINITIONS_GENERAL=WXUSINGDLL;__WXGTK__;_FILE_OFFSET_BITS=64
       - -DwxWidgets_LIBRARIES=-lwx_gtk3u_xrc-3.1;-lwx_gtk3u_html-3.1;-lwx_gtk3u_qa-3.1;-lwx_gtk3u_core-3.1;-lwx_baseu_xml-3.1;-lwx_baseu_net-3.1;-lwx_baseu-3.1
+      - -DWX_CONFIG=/app/bin/wx-config
       - -Dlib_preference=system
       - -Dobey_system_dependencies=On
       - -Duse_wxwidgets=system
@@ -250,7 +251,6 @@ modules:
       - -Duse_soundtouch=system
       - -Duse_twolame=system
       - -Dhas_networking=no
-#      - -DVCPKG=ON
     post-install:
       - chrpath -d /app/bin/tenacity
       - install -Dm644 ../help/tenacity.metainfo.xml -t /app/share/metainfo
