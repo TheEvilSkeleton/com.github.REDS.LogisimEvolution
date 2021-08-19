@@ -89,7 +89,6 @@ modules:
           - cp /usr/share/gnu-config/config.sub .
           - cp /usr/share/gnu-config/config.guess .
 
-
   - name: ffmpeg
     config-opts:
       - --enable-shared
