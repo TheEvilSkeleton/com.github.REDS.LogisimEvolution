@@ -1,9 +1,6 @@
 {
   "name": "lame",
   "rm-configure": true,
-  "config-opts": [
-    "--disable-static"
-  ],
   "post-install": [
     "install -Dm644 -t $FLATPAK_DEST/lib/pkgconfig lame.pc"
   ],
