@@ -1,0 +1,22 @@
+From 8de0a1989095b48680624690b652527cf0882235 Mon Sep 17 00:00:00 2001
+From: TheEvilSkeleton <theevilskeleton@riseup.net>
+Date: Sun, 13 Mar 2022 12:16:01 -0400
+Subject: [PATCH] Change mangohud path
+
+---
+ data/goverlay.sh.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/data/goverlay.sh.in b/data/goverlay.sh.in
+index 3b973e0..67d7c05 100755
+--- a/data/goverlay.sh.in
++++ b/data/goverlay.sh.in
+@@ -6,4 +6,4 @@
+ # --style Breeze will make sure the interface doesn't break in diferent DE and QT themes.
+
+ export QT_QPA_PLATFORM=xcb
+-mangohud --dlsym @libexecdir@/goverlay --style Breeze
++/usr/lib/extensions/vulkan/MangoHud/bin/mangohud --dlsym @libexecdir@/goverlay --style Breeze
+--
+2.35.1
+

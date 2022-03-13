@@ -16,9 +16,28 @@ add-extensions:
     version: stable
     versions: stable;beta;test
     add-ld-path: lib
-    merge-dirs: bin;lib/python3.8/site-packages;share/vulkan/explicit_layer.d;share/vulkan/implicit_layer.d;
+    merge-dirs: bin
     no-autodownload: true
     autodelete: true
+
+x-compat-i386-opts: &compat_i386_opts
+  prepend-pkg-config-path: /app/lib32/pkgconfig:/usr/lib/i386-linux-gnu/pkgconfig
+  ldflags: -L/app/lib32
+  append-path: /usr/lib/sdk/toolchain-i386/bin
+  env:
+    CC: i686-unknown-linux-gnu-gcc
+    CXX: i686-unknown-linux-gnu-g++
+  libdir: /app/lib32
+
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.toolchain-i386
+
+finish-args:
+  - --share=ipc
+  - --socket=pulseaudio
+  - --socket=x11
+  - --device=dri
+  - --share=network
 
 modules:
   - name: qt5pas
@@ -32,11 +51,29 @@ modules:
           - cp -r /usr/lib/sdk/freepascal/share/lazarus/lcl/interfaces/qt5/cbindings/.
             .
 
+  - name: libglu
+    buildsystem: meson
+    cleanup:
+      - /include
+      - /lib/debug
+      - /lib/pkgconfig
+      - /lib/*.a
+    sources:
+      - type: archive
+        url: https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.xz
+        sha256: 6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4
+        x-checker-data:
+          type: anitya
+          project-id: 13518
+          stable-only: true
+          url-template: https://mesa.freedesktop.org/archive/glu/glu-$version.tar.xz
+
   - name: goverlay
     buildsystem: simple
     build-commands:
       - . /usr/lib/sdk/freepascal/enable.sh && lazbuild -B --lazarusdir="$LAZARUS_DIR" goverlay.lpi
       - make -j$FLATPAK_BUILDER_N_JOBS
+      - make install
     sources:
       - type: git
         url: https://github.com/benjamimgois/goverlay.git
@@ -44,3 +81,5 @@ modules:
         commit: e955035a21d3b04bbf157087bf525ae218bd8075
       - type: patch
         path: patches/0001-Use-app-prefix.patch
+      - type: patch
+        path: patches/0002-Change-mangohud-path.patch
