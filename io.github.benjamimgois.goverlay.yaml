@@ -1,0 +1,46 @@
+app-id: io.github.benjamimgois.goverlay
+runtime: org.kde.Platform
+runtime-version: '5.15-21.08'
+sdk: org.kde.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.freepascal
+build-options:
+  append-path: /usr/lib/sdk/freepascal/bin
+  env:
+    LAZARUS_DIR: /usr/lib/sdk/freepascal/share/lazarus
+command: goverlay
+add-extensions:
+  com.valvesoftware.Steam.Utility:
+    subdirectories: true
+    directory: utils
+    version: stable
+    versions: stable;beta;test
+    add-ld-path: lib
+    merge-dirs: bin;lib/python3.8/site-packages;share/vulkan/explicit_layer.d;share/vulkan/implicit_layer.d;
+    no-autodownload: true
+    autodelete: true
+
+modules:
+  - name: qt5pas
+    config-opts:
+      - -after
+      - target.path=/app/lib
+    buildsystem: qmake
+    sources:
+      - type: shell
+        commands:
+          - cp -r /usr/lib/sdk/freepascal/share/lazarus/lcl/interfaces/qt5/cbindings/.
+            .
+
+  - name: goverlay
+    buildsystem: simple
+    build-commands:
+      - . /usr/lib/sdk/freepascal/enable.sh && lazbuild -B --lazarusdir="$LAZARUS_DIR" goverlay.lpi
+      - make -j$FLATPAK_BUILDER_N_JOBS
+    sources:
+      - type: git
+        url: https://github.com/benjamimgois/goverlay.git
+        tag: 0.8.1
+        commit: e955035a21d3b04bbf157087bf525ae218bd8075
+      - type: patch
+        path: patches/0001-Use-app-prefix.patch
