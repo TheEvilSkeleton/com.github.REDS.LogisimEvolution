@@ -21,6 +21,7 @@ add-extensions:
     autodelete: true
 
 finish-args:
+  - --env=QT_QPA_PLATFORM=xcb
   - --share=ipc
   - --socket=pulseaudio
   - --socket=x11
@@ -71,4 +72,4 @@ modules:
       - type: patch
         path: patches/0001-Use-app-prefix.patch
       - type: patch
-        path: patches/0002-Change-mangohud-path.patch
+        path: patches/0002-Add-MangoHud-path-and-remove-forceful-X11.patch

@@ -1,0 +1,27 @@
+From 6ade761d6141ed1e67e9271180effde8cb4ca87f Mon Sep 17 00:00:00 2001
+From: TheEvilSkeleton <theevilskeleton@riseup.net>
+Date: Sun, 13 Mar 2022 17:48:55 -0400
+Subject: [PATCH] Add MangoHud path and remove forceful X11
+
+---
+ data/goverlay.sh.in | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/data/goverlay.sh.in b/data/goverlay.sh.in
+index 3b973e0..48776d7 100755
+--- a/data/goverlay.sh.in
++++ b/data/goverlay.sh.in
+@@ -1,9 +1,8 @@
+ #!/bin/sh
+ # This script will launch the compiled goverlay binary the correct way
+ #
+-# QT_QPA_PLATFORM=xcb will force the application to run in x11 mode, so it works on wayland desktops.
+ # mangohud --dlsym will force the mangohud display on the spinning cube on goverlay.
+ # --style Breeze will make sure the interface doesn't break in diferent DE and QT themes.
+
+-export QT_QPA_PLATFORM=xcb
++export PATH="/usr/lib/extensions/vulkan/MangoHud/bin:$PATH"
+ mangohud --dlsym @libexecdir@/goverlay --style Breeze
+--
+2.35.1
+
