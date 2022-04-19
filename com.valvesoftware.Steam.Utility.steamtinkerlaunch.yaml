@@ -100,7 +100,6 @@ modules:
     build-commands:
       - make install
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
-      - echo ${FLATPAK_DEST}
     sources:
       - type: git
         url: https://github.com/frostworx/steamtinkerlaunch.git
