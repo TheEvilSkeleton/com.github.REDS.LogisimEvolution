@@ -18,8 +18,8 @@ modules:
       - "--enable-standalone"
     sources:
       - type: archive
-        url: "https://github.com/v1cont/yad/releases/download/v10.1/yad-10.1.tar.xz"
-        sha256: 742a5bd55de4b249eee6780bddeccb05c7ff4b158fd9743808f7d280219fd3ab
+        url: https://github.com/v1cont/yad/releases/download/v11.1/yad-11.1.tar.xz
+        sha256: ca61d422d6d464d7f473d1e5bd14d3ca05d311ef203f1c67bbea7c23bf0eae2f
     modules:
       - name: intltool
         cleanup:
@@ -44,8 +44,6 @@ modules:
       - INSTALL_SYMLINKS=1
       - NO_PERL=YesPlease
       - NO_TCLTK=YesPlease
-    post-install:
-      - find . -type f -name perllocal.pod -delete
     sources:
       - type: archive
         sha256: 15e9db4f9bf2ed9fff30cb62a00c5c7c0901015f5ab048cdb4e8b04ddee00fa2
@@ -104,6 +102,6 @@ modules:
       - type: git
         url: https://github.com/frostworx/steamtinkerlaunch.git
         # tag: v9.2
-        commit: 872e22255e71dd6cf4c44360dfa2bba2c21e2343
+        commit: 62feda034f23bace09d1e805603ffcf4261eb55b
       - type: file
         path: com.valvesoftware.Steam.Utility.steamtinkerlaunch.metainfo.xml
