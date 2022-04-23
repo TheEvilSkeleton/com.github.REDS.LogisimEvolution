@@ -46,13 +46,8 @@ modules:
       - NO_TCLTK=YesPlease
     sources:
       - type: archive
-        sha256: 15e9db4f9bf2ed9fff30cb62a00c5c7c0901015f5ab048cdb4e8b04ddee00fa2
-        url: https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.35.3.tar.xz
-        x-checker-data:
-          type: html
-          url: https://mirrors.edge.kernel.org/pub/software/scm/git/
-          version-pattern: git-([\d\.-]+).tar.xz
-          url-template: https://mirrors.edge.kernel.org/pub/software/scm/git/git-$version.tar.xz
+        url: https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.36.0.tar.xz
+        sha256: af5ebfc1658464f5d0d45a2bfd884c935fb607a10cc021d95bc80778861cc1d3
 
   - name: xdotool
     no-autogen: true
@@ -87,8 +82,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/vim/vim
-        tag: v8.2.0788
-        commit: deb17451edd65e2af1d155bce0886e856a716591
+        tag: v8.2.4814
+        commit: 4a392d244018fadda375a490f4f4b921023248b9
 
   - name: steamtinkerlaunch
     build-options:
