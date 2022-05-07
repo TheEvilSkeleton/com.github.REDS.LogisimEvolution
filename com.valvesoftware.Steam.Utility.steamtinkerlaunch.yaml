@@ -96,7 +96,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/frostworx/steamtinkerlaunch.git
-        # tag: v9.2
-        commit: a9f32e357d543c06ba8f53970077344ec5a5c456
+        tag: v10.0
+        commit: 39bacab0c2bf1a9338e7385b4035753c0a197907
       - type: file
         path: com.valvesoftware.Steam.Utility.steamtinkerlaunch.metainfo.xml

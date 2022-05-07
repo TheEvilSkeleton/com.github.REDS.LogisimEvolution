@@ -9,6 +9,7 @@
   <project_license>GPL-3.0-only</project_license>
   <metadata_license>CC0-1.0</metadata_license>
   <releases>
+    <release version="10.0" date="2022-04-29"/>
     <release version="9.2" date="2022-03-02"/>
   </releases>
 </component>
