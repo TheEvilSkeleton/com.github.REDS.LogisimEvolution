@@ -92,6 +92,8 @@ modules:
     buildsystem: simple
     build-commands:
       - make install
+      - install -Dm644 -t ${FLATPAK_DEST}/share/steam/compatibilitytools.d compatibilitytool.vdf
+      - install -Dm644 -t ${FLATPAK_DEST}/share/steam/compatibilitytools.d toolmanifest.vdf
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
     sources:
       - type: git
@@ -100,3 +102,7 @@ modules:
         commit: 39bacab0c2bf1a9338e7385b4035753c0a197907
       - type: file
         path: com.valvesoftware.Steam.Utility.steamtinkerlaunch.metainfo.xml
+      - type: file
+        path: compatibilitytool.vdf
+      - type: file
+        path: toolmanifest.vdf
