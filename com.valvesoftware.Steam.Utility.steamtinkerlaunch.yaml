@@ -92,10 +92,9 @@ modules:
     buildsystem: simple
     build-commands:
       - make install
-      - install -Dm644 -t ${FLATPAK_DEST}/share/steam/compatibilitytools.d compatibilitytool.vdf
-      - install -Dm644 -t ${FLATPAK_DEST}/share/steam/compatibilitytools.d toolmanifest.vdf
+      - install -Dm644 -t ${FLATPAK_DEST}/share/steam/compatibilitytools.d SteamTinkerLaunch.vdf
+      - install -Dm644 -t ${FLATPAK_DEST}/bin toolmanifest.vdf
       - install -Dm644 -t ${FLATPAK_DEST}/share/metainfo ${FLATPAK_ID}.metainfo.xml
-      # - ln -s ${FLATPAK_DEST}/bin/steamtinkerlaunch ${FLATPAK_DEST}/share/steam/compatibilitytools.d
     sources:
       - type: git
         url: https://github.com/frostworx/steamtinkerlaunch.git
@@ -104,6 +103,6 @@ modules:
       - type: file
         path: com.valvesoftware.Steam.Utility.steamtinkerlaunch.metainfo.xml
       - type: file
-        path: compatibilitytool.vdf
+        path: SteamTinkerLaunch.vdf
       - type: file
         path: toolmanifest.vdf
